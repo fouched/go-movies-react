@@ -1,4 +1,5 @@
 import Ticket from './../images/movie_tickets.jpg'
+import {Link} from "react-router-dom";
 
 const Home = () => {
 
@@ -7,7 +8,9 @@ const Home = () => {
             <div className="text-center">
                 <h2>Find a movie to watch tonight!</h2>
                 <hr/>
-                <img src={Ticket} alt="Movie Ticket"/>
+                <Link to="/movies">
+                    <img src={Ticket} alt="Movie Ticket"/>
+                </Link>
             </div>
         </>
     )

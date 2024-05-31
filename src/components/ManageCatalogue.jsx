@@ -1,14 +1,14 @@
 
-const Movies = () => {
+const ManageCatalogue = () => {
 
     return(
         <>
             <div>
-                <h2>Movies</h2>
+                <h2> Manage Catalogue</h2>
                 <hr/>
             </div>
         </>
     )
 }
 
-export default Movies
+export default ManageCatalogue

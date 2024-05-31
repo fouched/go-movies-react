@@ -1,14 +1,15 @@
 
-const Movies = () => {
+const Genres
+    = () => {
 
     return(
         <>
             <div>
-                <h2>Movies</h2>
+                <h2>Genres</h2>
                 <hr/>
             </div>
         </>
     )
 }
 
-export default Movies
+export default Genres
