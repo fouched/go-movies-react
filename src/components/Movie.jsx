@@ -5,22 +5,22 @@ const Movie = () => {
 
     const [movie, setMovie] = useState({});
 
-    let { id } = useParams();
+    let {id} = useParams();
 
     useEffect(() => {
-        let myMovie =             {
-                id: 1,
-                title: "Highlander",
-                release_date: "1986-03-07",
-                runtime: 116,
-                mpaa_rating: "R",
-                description: "Some long description",
-            }
+        let myMovie = {
+            id: 1,
+            title: "Highlander",
+            release_date: "1986-03-07",
+            runtime: 116,
+            mpaa_rating: "R",
+            description: "Some long description",
+        }
         setMovie(myMovie)
     }, [id]);
 
 
-    return(
+    return (
         <>
             <div>
                 <h2>Movie: {movie.title}</h2>

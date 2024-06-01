@@ -27,18 +27,18 @@ const Movies = () => {
         setMovies(moviesList);
     }, []);
 
-    return(
+    return (
         <>
             <div>
                 <h2>Movies</h2>
                 <hr/>
                 <table className="table table-striped table-hover">
                     <thead>
-                        <tr>
-                            <th>Movie</th>
-                            <th>Release Date</th>
-                            <th>Rating</th>
-                        </tr>
+                    <tr>
+                        <th>Movie</th>
+                        <th>Release Date</th>
+                        <th>Rating</th>
+                    </tr>
                     </thead>
                     <tbody>
                     {movies.map((m) => (

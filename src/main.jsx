@@ -15,44 +15,44 @@ import Movie from "./components/Movie.jsx";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App />,
-        errorElement: <ErrorPage />,
+        element: <App/>,
+        errorElement: <ErrorPage/>,
         children: [
-            {index: true, element: <Home />},
+            {index: true, element: <Home/>},
             {
                 path: "/movies",
-                element: <Movies />,
+                element: <Movies/>,
             },
             {
                 path: "/movies/:id",
-                element: <Movie />,
+                element: <Movie/>,
             },
             {
                 path: "/genres",
-                element: <Genres />,
+                element: <Genres/>,
             },
             {
                 path: "/admin/movie/0",
-                element: <EditMovie />,
+                element: <EditMovie/>,
             },
             {
                 path: "/manage-catalogue",
-                element: <ManageCatalogue />,
+                element: <ManageCatalogue/>,
             },
             {
                 path: "/graphql",
-                element: <GraphQL />,
+                element: <GraphQL/>,
             },
             {
                 path: "/login",
-                element: <Login />,
+                element: <Login/>,
             },
         ]
     }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router}/>
-  </React.StrictMode>,
+    <React.StrictMode>
+        <RouterProvider router={router}/>
+    </React.StrictMode>,
 )
