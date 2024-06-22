@@ -10,6 +10,7 @@ const Login = () => {
     const { setJwtToken } = useOutletContext();
     const { setAlertClassName } = useOutletContext();
     const { setAlertMessage } = useOutletContext();
+    const { toggleRefresh } = useOutletContext();
 
     const navigate = useNavigate();
 
@@ -31,16 +32,17 @@ const Login = () => {
             body: JSON.stringify(payload)
         }
 
-        fetch(`/authenticate`, requestOptions)
+        fetch(`http://localhost:9080/authenticate`, requestOptions)
             .then((res) => res.json())
             .then((data) => {
                 if (data.error) {
                     setAlertClassName("alert-danger");
                     setAlertMessage(data.message);
                 } else {
-                    setJwtToken(data.token);
+                    setJwtToken(data.access_token);
                     setAlertClassName("d-none");
                     setAlertMessage("");
+                    toggleRefresh(true);
                     navigate("/");
                 }
             })
