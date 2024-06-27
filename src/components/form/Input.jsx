@@ -20,6 +20,6 @@ const Input = forwardRef((props, ref) => {
             <div className={props.errorDiv}>{props.errorMsg}</div>
         </div>
     )
-})
+});
 
 export default Input;
