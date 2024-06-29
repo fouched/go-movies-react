@@ -30,8 +30,6 @@ const Movie = () => {
         movie.genres = []
     }
 
-    console.log("genres", movie.genres)
-
     return (
         <>
             <div>
