@@ -34,7 +34,7 @@ const EditMovie = () => {
         mpaa_rating: "",
         description: "",
         genres: [],
-        genres_array: [Array(13).fill(false)]
+        genres_array: [Array(14).fill(false)]
     });
 
     // get id from URL
@@ -89,7 +89,42 @@ const EditMovie = () => {
                 })
                 .catch(err => console.log(err));
         } else {
-            // TODO
+            // editing an existing movie
+            const headers = new Headers();
+            headers.append("Content-Type", "application/json");
+            headers.append("Authorization", "Bearer " + jwtToken);
+
+            const requestOptions = {
+                method: "GET",
+                headers: headers
+            }
+
+            fetch(`http://localhost:9080/admin/movies/${id}`, requestOptions)
+                .then((response) => {
+                    if (response.status !== 200) {
+                        setError("Invalid response code:" + response.status);
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    // fix release date
+                    data.movie.release_date = new Date(data.movie.release_date).toISOString().split("T")[0];
+
+                    const checks = [];
+                    data.genres.forEach(g => {
+                        if (data.movie.genres_array.indexOf(g.id) !== -1) {
+                            checks.push({id: g.id, checked: true, genre: g.genre});
+                        } else {
+                            checks.push({id: g.id, checked: false, genre: g.genre});
+                        }
+                    })
+
+                    setMovie({
+                        ...data.movie,
+                        genres: checks,
+                    })
+                })
+                .catch(err => console.log(err));
         }
 
     }, [id, jwtToken, navigate])
