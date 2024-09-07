@@ -15,7 +15,7 @@ const Genres = () => {
             headers: headers,
         }
 
-        fetch(`http://localhost:9080/genres`, requestOptions)
+        fetch(`${import.meta.env.VITE_API_URL}/genres`, requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 if (data.error) {

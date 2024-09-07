@@ -71,7 +71,7 @@ const EditMovie = () => {
                 headers: headers,
             }
 
-            fetch(`http://localhost:9080/genres`, requestOptions)
+            fetch(`${import.meta.env.VITE_API_URL}/genres`, requestOptions)
                 .then((res) => res.json())
                 .then((data) => {
                   const checks = [];
@@ -99,7 +99,7 @@ const EditMovie = () => {
                 headers: headers
             }
 
-            fetch(`http://localhost:9080/admin/movies/${id}`, requestOptions)
+            fetch(`${import.meta.env.VITE_API_URL}/admin/movies/${id}`, requestOptions)
                 .then((response) => {
                     if (response.status !== 200) {
                         setError("Invalid response code:" + response.status);
@@ -189,7 +189,7 @@ const EditMovie = () => {
             credentials: 'include',
         }
 
-        fetch(`http://localhost:9080/admin/movies/${movie.id}`, requestOptions)
+        fetch(`${import.meta.env.VITE_API_URL}/admin/movies/${movie.id}`, requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 if (data.error) {
@@ -251,7 +251,7 @@ const EditMovie = () => {
                     method: "DELETE",
                     headers: headers,
                 }
-                fetch(`http://localhost:9080/admin/movies/${movie.id}`, requestOptions)
+                fetch(`${import.meta.env.VITE_API_URL}/admin/movies/${movie.id}`, requestOptions)
                     .then((res) => res.json())
                     .then((data) => {
                         if (data.error) {

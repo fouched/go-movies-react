@@ -22,7 +22,7 @@ const ManageCatalogue = () => {
             headers: headers,
         }
 
-        fetch(`http://localhost:9080/admin/movies`, requestOptions)
+        fetch(`${import.meta.env.VITE_API_URL}/admin/movies`, requestOptions)
             .then((res) => res.json())
             .then((data) => {
                 setMovies(data);

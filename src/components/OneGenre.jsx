@@ -22,7 +22,7 @@ const OneGenre = () => {
             headers: headers,
         }
 
-        fetch(`http://localhost:9080/movies/genres/${id}`, requestOptions)
+        fetch(`${import.meta.env.VITE_API_URL}/movies/genres/${id}`, requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 if (data.error) {

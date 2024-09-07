@@ -32,7 +32,7 @@ const Login = () => {
             body: JSON.stringify(payload)
         }
 
-        fetch(`http://localhost:9080/authenticate`, requestOptions)
+        fetch(`${import.meta.env.VITE_API_URL}/authenticate`, requestOptions)
             .then((res) => res.json())
             .then((data) => {
                 if (data.error) {

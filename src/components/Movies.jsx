@@ -13,7 +13,7 @@ const Movies = () => {
             headers: headers,
         }
 
-        fetch(`http://localhost:9080/movies`, requestOptions)
+        fetch(`${import.meta.env.VITE_API_URL}/movies`, requestOptions)
             .then((res) => res.json())
             .then((data) => {
                 setMovies(data);

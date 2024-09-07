@@ -31,7 +31,7 @@ const GraphQL = () => {
             body: payload,
         }
 
-        fetch(`http://localhost:9080/graph`, requestOptions)
+        fetch(`${import.meta.env.VITE_API_URL}/graph`, requestOptions)
             .then((response) => response.json())
             .then((response) => {
                 let theList = Object.values(response.data.search)
@@ -76,7 +76,7 @@ const GraphQL = () => {
             body: payload,
         }
 
-        fetch(`http://localhost:9080/graph`, requestOptions)
+        fetch(`${import.meta.env.VITE_API_URL}/graph`, requestOptions)
             .then((response) => response.json())
             .then((response) => {
                 let theList = Object.values(response.data.list)

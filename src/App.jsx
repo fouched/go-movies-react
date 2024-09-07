@@ -16,7 +16,7 @@ function App() {
             credentials: "include",
         }
 
-        fetch("http://localhost:9080/logout", requestOptions)
+        fetch(`${import.meta.env.VITE_API_URL}/logout`, requestOptions)
             .catch((err) => {
                 console.log("error logging out", err);
             })
@@ -36,7 +36,7 @@ function App() {
                     method: "GET",
                     credentials: "include"
                 }
-                fetch(`http://localhost:9080/refresh`, requestOptions)
+                fetch(`${import.meta.env.VITE_API_URL}/refresh`, requestOptions)
                     .then((res) => res.json())
                     .then((data) => {
                         if (data.access_token) {
@@ -62,7 +62,7 @@ function App() {
                 method: "GET",
                 credentials: "include"
             }
-            fetch(`http://localhost:9080/refresh`, requestOptions)
+            fetch(`${import.meta.env.VITE_API_URL}/refresh`, requestOptions)
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.access_token) {
